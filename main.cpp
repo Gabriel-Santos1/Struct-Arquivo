@@ -3,8 +3,8 @@
 #include <fstream>
 using namespace std;
 
-int menu()
-{
+
+int menu(){
     int op;
     cout << ("Opções") << endl;
     cout << ("1. Ler do teclado") << endl;
