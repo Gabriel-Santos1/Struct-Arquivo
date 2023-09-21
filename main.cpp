@@ -52,15 +52,15 @@ void ledoteclado()
 }
 void ledoarquivo()
 {
-    ifstream arquivo("banco.txt");
+    ofstream arquivo("banco.txt");
 
     for (int i = 0; i < QTDPESSOAS; i++)
     {
-        arquivo >> b[i].nome;
-        arquivo >> b[i].salario;
-        arquivo >> b[i].idade;
-        arquivo >> b[i].filho;
-        arquivo >> b[i].sexo;
+        arquivo << b[i].nome;
+        arquivo << b[i].salario;
+        arquivo << b[i].idade;
+        arquivo << b[i].filho;
+        arquivo << b[i].sexo;
     }
     arquivo.close();
 }
@@ -68,23 +68,22 @@ void exibirtela()
 {
     for (int i = 0; i < QTDPESSOAS; i++)
     {
-        cout << ("Média Salarial: ") << mediaSal;
-        cout << ("Média de Filhos: ") << medFil;
-        cout << ("Maior: ") << maior;
-        cout << ("Porcentagem: ") << percent;
+        cout << ("Média Salarial: ") << mediaSal << endl;
+        cout << ("Média de Filhos: ") << medFil << endl;
+        cout << ("Maior: ") << maior << endl;
+        cout << ("Porcentagem: ") << percent << endl;
         getchar();
     }
 }
 void gravarrelatorio()
 {
     ofstream arquivo("relatorio.txt");
-    for (int i = 0; i < 10; i++)
-    {
-        arquivo << mediaSal << endl;
-        arquivo << medFil << endl;
-        arquivo << maior << endl;
-        arquivo << percent << endl;
-    }
+
+    arquivo << mediaSal << endl;
+    arquivo << medFil << endl;
+    arquivo << maior << endl;
+    arquivo << percent << endl;
+
     arquivo.close();
 }
 void realizarcalc()
@@ -127,25 +126,35 @@ int main()
         switch (op)
         {
         case 1:
+            system ("cls");      
             ledoteclado();
-            realizarcalc();
-            break;
-
-        case 2:
             ledoarquivo();
             realizarcalc();
             break;
 
+        case 2:
+            system ("cls");
+            ledoarquivo();
+            realizarcalc();
+            system ("pause");
+            break;
+
         case 3:
+            system ("cls");
             exibirtela();
+            system ("pause");
             break;
 
         case 4:
+            system ("cls");
             gravarrelatorio();
+            system ("pause");
             break;
 
         case 5:
+            system ("cls");
             realizarcalc();
+            system ("pause");
             break;
 
         case 0:
